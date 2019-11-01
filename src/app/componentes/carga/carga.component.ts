@@ -9,12 +9,21 @@ import { CargaImgsService } from "../../servicios/carga-imgs.service";
 })
 export class CargaComponent implements OnInit {
   archivos: ArchivoElem[] = [];
+  estaSobreElem: boolean = false;
 
   constructor(private cargaImgsService: CargaImgsService) {}
 
   ngOnInit() {}
 
   cargarImagenes() {
-    this.cargaImgsService.cargarImagenesFirebase(this.archivos); 
+    this.cargaImgsService.cargarImagenesFirebase(this.archivos);
+  }
+
+  mouseSobreElem(evento: Event) {
+    console.log(evento);
+  }
+
+  limpiarArchivos() {
+    this.archivos = [];
   }
 }
