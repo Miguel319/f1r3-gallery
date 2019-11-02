@@ -8,7 +8,10 @@ export const environment = {
     apiKey: "AIzaSyD6m9C2k290TmnKncwgltWbeXPiXe9haAg",
     authDomain: "f1r3-gallery.firebaseapp.com",
     databaseURL: "https://f1r3-gallery.firebaseio.com",
-    projectId: "f1r3-gallery"
+    projectId: "f1r3-gallery",
+    storageBucket: "f1r3-gallery.appspot.com",
+    messagingSenderId: "377011893143",
+    appId: "1:377011893143:web:9e9cadd3b574521f208ad2"
   }
 };
 

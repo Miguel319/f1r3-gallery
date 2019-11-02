@@ -1,3 +1,8 @@
-<p>
-  imagenes works!
-</p>
+<div class="card-columns">
+  <div class="card" *ngFor="let elem of elementos | async">
+    <img [src]="elem.url" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{ elem.nombre }}</h5>
+    </div>
+  </div>
+</div>
