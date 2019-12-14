@@ -12,6 +12,8 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 
 import { environment } from "../environments/environment";
 import { NgDropDirective } from './directivas/ng-drop.directive';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NgDropDirective } from './directivas/ng-drop.directive';
     ImagenesComponent,
     CargaComponent,
     NavbarComponent,
-    NgDropDirective
+    NgDropDirective,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
