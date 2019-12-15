@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from "@angular/router";
 import { ImagenesComponent } from "./componentes/imagenes/imagenes.component";
 import { CargaComponent } from "./componentes/carga/carga.component";
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 
 const RUTAS: Routes = [
