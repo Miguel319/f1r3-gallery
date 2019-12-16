@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../../services/auth.service";
+import { AuthService } from "../../servicios/auth.service";
+import { AlertifyService } from "../../servicios/alertify.service";
 
 @Component({
   selector: "app-navbar",
@@ -7,13 +8,26 @@ import { AuthService } from "../../services/auth.service";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
-  constructor(private auth: AuthService) {}
+  usuarioActual: string;
+  estaAutenticado: boolean;
+
+  constructor(private auth: AuthService, private alertify: AlertifyService) {}
 
   ngOnInit() {
-    this.estaAutenticado();
+    this.auth.obtenerNombre().subscribe(res => (this.usuarioActual = res));
+    this.autenticar();
   }
 
-  estaAutenticado() {
-    this.auth.estaAutenticado().subscribe(res => console.log(res));
+  autenticar() {
+    this.auth
+      .estaAutenticado()
+      .subscribe(data => (this.estaAutenticado = data));
+  }
+
+  logout() {
+    this.auth
+      .logout()
+      .then(() => this.alertify.success("Logged out succesfully!"))
+      .catch(() => this.alertify.error("Unable to logout. Try again"));
   }
 }

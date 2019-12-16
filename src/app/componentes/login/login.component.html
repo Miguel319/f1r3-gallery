@@ -66,6 +66,7 @@
 
     <div>
       <button
+        [disabled]="formGroup.invalid"
         (click)="login()"
         class="btn mt-4 btn-primary btn-block text-uppercase btn-custom rounded-pill btn-lg"
       >

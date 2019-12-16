@@ -13,7 +13,11 @@ export class AuthService {
   constructor(private afsAuth: AngularFireAuth) {}
 
   estaAutenticado() {
-    return this.afsAuth.authState.pipe(map(auth => auth));
+    return this.afsAuth.authState.pipe(map(auth => Boolean(auth.uid)));
+  }
+
+  obtenerNombre() {
+    return this.afsAuth.authState.pipe(map(auth => auth.displayName));
   }
 
   registrar(usuario: Usuario) {

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { Usuario } from "../../modelos/usuario.model";
 import { NgForm, FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { AuthService } from "../../services/auth.service";
+import { AuthService } from "../../servicios/auth.service";
 
 @Component({
   selector: "app-registro",
@@ -62,7 +62,6 @@ export class RegistroComponent implements OnInit {
         .registrar(this.usuario)
         .then(() => this.authRedirect())
         .catch(err => console.log(err));
-
     }
   }
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AuthService } from "../../services/auth.service";
+import { AuthService } from "../../servicios/auth.service";
 import { Router } from "@angular/router";
 import { Usuario } from "src/app/modelos/usuario.model";
+import { AlertifyService } from "../../servicios/alertify.service";
 
 @Component({
   selector: "app-login",
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertify: AlertifyService
   ) {}
 
   ngOnInit() {
@@ -37,8 +39,11 @@ export class LoginComponent implements OnInit {
 
     this.authService
       .login(this.usuario)
-      .then(() => this.loginRedirect())
-      .catch(err => console.log("err", err.message));
+      .then(() => {
+        this.alertify.success('Logged in successfully!');
+        this.loginRedirect();
+      })
+        .catch(err => this.alertify.error('Unable to login. Verify your credentials.'));
   }
 
   googleLogin() {
